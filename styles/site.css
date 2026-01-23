@@ -112,17 +112,30 @@ body{
 }
 
 .social{
-  margin-top:12px;
+  margin-top:14px;
   display:flex;
   gap:8px;
   flex-wrap:wrap;
 }
 
 .social a{
-  color:var(--muted);
+  color:var(--accent);
   text-decoration:none;
-  font-size:0.95rem;
+  font-size:0.85rem;
+  font-weight:600;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(110,231,183,0.35);
+  background:rgba(110,231,183,0.05);
+  transition:all 0.2s ease;
 }
+
+.social a:hover{
+  background:rgba(110,231,183,0.15);
+  color:#eafff6;
+  border-color:rgba(110,231,183,0.7);
+}
+
 
 /* ---------- Main Content ---------- */
 .content{
