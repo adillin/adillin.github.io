@@ -36,9 +36,11 @@
       <a href="mailto:adilnawazin@gmail.com">adilnawazin@gmail.com</a>
 
       <div class="social">
-        <a href="https://gitee.com/SZU-AI4H" target="_blank">Gitee</a>
-        <a href="resume.pdf" target="_blank">CV</a>
-        <a href="https://scholar.google.com/citations?user=tWc9ldIAAAAJ&hl=en" target="_blank"> Scholar </a>
+        <a href="https://github.com/adi-ll" target="_blank">🐙 GitHub</a>
+        <a href="resume.pdf" target="_blank">📄 CV</a>
+        <a href="https://scholar.google.com/citations?user=tWc9ldIAAAAJ&hl=en" target="_blank">
+          🎓 Scholar
+        </a>
       </div>
     </div>
   </aside>
@@ -139,6 +141,29 @@
 
       <p class="contact-block">
         <strong>Email:</strong> <a href="mailto:adilnawazin@gmail.com">adilnawazin@gmail.com</a><br>
-        <strong>GitHub:</strong> <a href="https://gitee.com/SZU-AI4H">SZU-AI4H</a><br>
+        <strong>GitHub:</strong> <a href="https://github.com/adi-ll">adi-ll</a><br>
         <strong>Google Scholar:</strong>
-        <a
+        <a href="https://scholar.google.com/citations?user=tWc9ldIAAAAJ&hl=en">Profile</a>
+      </p>
+    </section>
+
+  </main>
+</div>
+
+<script>
+/* active nav */
+function setActive() {
+  document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+  const id = location.hash ? location.hash.slice(1) : 'home';
+  const link = document.querySelector('.nav a[href="#' + id + '"]');
+  if (link) link.classList.add('active');
+}
+window.addEventListener('hashchange', setActive);
+setActive();
+</script>
+
+<!-- BibTeX loader stays unchanged -->
+<script src="publications.js"></script>
+
+</body>
+</html>
