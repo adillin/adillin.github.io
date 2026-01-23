@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Adil Nawaz, Ph.D. — Privacy-preserving Machine Learning</title>
+
+  <title>Adil Nawaz, Ph.D. — Privacy-Preserving Machine Learning</title>
 
   <meta name="description"
         content="Adil Nawaz — Ph.D. researcher in privacy-preserving machine learning, federated learning, and Bayesian optimization. Seeking postdoctoral and research positions.">
@@ -11,101 +12,34 @@
   <link rel="stylesheet" href="styles/site.css">
 </head>
 
-<!-- -->
-<script>
-async function loadPublications() {
-  const res = await fetch('publications.bib');
-  const text = await res.text();
-
-  const entries = text.split('@').slice(1).map(e => '@' + e);
-  const pubs = [];
-
-  const field = (e, k) => {
-    const m = e.match(new RegExp(k + '\\s*=\\s*[{\"]([^}\"]+)[}\"]', 'i'));
-    return m ? m[1] : '';
-  };
-
-  entries.forEach(e => {
-    pubs.push({
-      id: e.match(/@\w+\{([^,]+)/)?.[1],
-      title: field(e, 'title'),
-      authors: field(e, 'author'),
-      venue: field(e, 'journal') || field(e, 'booktitle'),
-      year: field(e, 'year'),
-      url: field(e, 'url'),
-      pdf: field(e, 'pdf'),
-      code: field(e, 'code'),
-      bibtex: e.trim()
-    });
-  });
-
-  pubs.sort((a, b) => (b.year || 0) - (a.year || 0));
-
-  const list = document.getElementById('pub-list');
-
-  pubs.forEach(p => {
-    const authors = p.authors.replace(/Nawaz,\s*Adil/g, '<strong>Nawaz, Adil</strong>');
-
-    const li = document.createElement('li');
-    li.innerHTML = `
-      <strong>
-        ${p.url ? `<a href="${p.url}" target="_blank" rel="noopener">${p.title}</a>` : p.title}
-      </strong><br>
-      ${authors}<br>
-      <em>${p.venue}</em>, ${p.year}<br>
-      <span style="font-size:0.9rem">
-        ${p.pdf ? `<a href="${p.pdf}" target="_blank">[PDF]</a>` : ''}
-        ${p.code ? ` <a href="${p.code}" target="_blank">[Code]</a>` : ''}
-        <a href="#" onclick="toggleBib('${p.id}');return false;">[BibTeX]</a>
-      </span>
-      <pre id="bib-${p.id}" style="display:none; margin-top:6px; font-size:0.85rem;">${p.bibtex}</pre>
-    `;
-    list.appendChild(li);
-  });
-}
-
-function toggleBib(id) {
-  const el = document.getElementById('bib-' + id);
-  el.style.display = el.style.display === 'none' ? 'block' : 'none';
-}
-
-loadPublications();
-</script>
-<!--  -->
-
 <body>
 <div class="site">
 
   <!-- ================= Sidebar ================= -->
   <aside class="sidebar">
-    <img class="avatar" src="images/photo.jpg" alt="Adil Nawaz">
+    <img class="avatar" src="images/p2.jpg" alt="Adil Nawaz">
 
     <h1>Adil Nawaz, Ph.D.</h1>
     <div class="meta">
       Trustworthy AI · Federated Learning · Bayesian Optimization
     </div>
 
-    <nav class="nav" aria-label="Primary navigation">
+    <nav class="nav">
       <a href="#home">Home</a>
       <a href="#research">Research</a>
       <a href="#publications">Publications</a>
-      <a href="#cv">Educational Background</a>
+      <a href="#cv">Education</a>
       <a href="#contact">Contact</a>
     </nav>
 
     <div class="contact">
-      <div>
-        <a href="mailto:adilnawazin@gmail.com">adilnawazin@gmail.com</a>
-      </div>
-    <div class="social">
-          <a href="https://github.com/adi-ll" target="_blank" rel="noopener">
-            🐙 GitHub
-        </a>
-        <a href="resume.pdf" target="_blank" rel="noopener">
-            📄 CV
-        </a>
-    </div>
+      <a href="mailto:adilnawazin@gmail.com">adilnawazin@gmail.com</a>
 
+      <div class="social">
+        <a href="https://gitee.com/SZU-AI4H" target="_blank">Gitee</a>
+        <a href="resume.pdf" target="_blank">CV</a>
+        <a href="https://scholar.google.com/citations?user=tWc9ldIAAAAJ&hl=en" target="_blank"> Scholar </a>
+      </div>
     </div>
   </aside>
 
@@ -113,92 +47,74 @@ loadPublications();
   <main class="content">
 
     <!-- ================= HERO ================= -->
-    <section id="home">
-      <header class="header">
-        <div>
-          <h2 class="h1">Privacy-Preserving & Federated Machine Learning</h2>
-          <div class="tag">
-            Ph.D. graduate · Seeking postdoctoral / researcher positions · Open to collaborations
-          </div>
-        </div>
-      </header>
+    <section id="home" class="hero">
+      <h2>
+        Privacy-Preserving & Federated Machine Learning
+      </h2>
 
-      <p style="max-width:780px;">
-        I have a Ph.D in Computer Science & Technology from <strong>Shenzhen University</strong>, specializing
-        in <strong>trustworthy AI, privacy-preserving machine learning, federated learning</strong>,
-        and <strong>Bayesian optimization</strong>. 
-        My work focuses on designing <em>scalable, secure, and theoretically grounded</em>
-        learning frameworks for distributed and sensitive data.
+      <p class="hero-tag">
+        Ph.D. Graduate · Postdoctoral & Research Positions · Open to Collaboration
       </p>
 
-      <p style="max-width:780px;">
-        I am currently seeking <strong>postdoctoral or research positions</strong> and welcome
-        academic or industrial collaborations in federated learning, decentralized optimization,
-        and probabilistic modeling.
+      <p>
+        I received my Ph.D. in Computer Science & Technology from
+        <strong>Shenzhen University</strong>.
+        My research focuses on <strong>trustworthy AI</strong>,
+        <strong>privacy-preserving and federated learning</strong>, and
+        <strong>Bayesian optimization</strong>, with an emphasis on
+        scalable and theoretically grounded distributed models.
+      </p>
+
+      <p>
+        I am actively seeking <strong>postdoctoral or research positions</strong>
+        and welcome academic or industrial collaborations in federated learning,
+        decentralized optimization, and probabilistic modeling.
       </p>
     </section>
 
     <!-- ================= RESEARCH ================= -->
     <section id="research" class="section">
-      <header class="header">
-        <div>
-          <h2 class="h1">Research Interests</h2>
-          <!-- <div class="tag">Core themes and ongoing work</div> -->
-        </div>
-      </header>
+      <h2 class="section-title">Research Interests</h2>
 
       <div class="columns">
-        <div class="col">
-          <h3>Core Areas</h3>
+        <div class="card">
+          <h3>Core Methods</h3>
           <ul>
             <li>Privacy-preserving machine learning</li>
             <li>Federated & decentralized learning</li>
             <li>Bayesian optimization</li>
-            <li>Gaussian processes & probabilistic models</li>
+            <li>Gaussian processes</li>
             <li>Secure distributed optimization</li>
           </ul>
         </div>
 
-        <div class="col">
+        <div class="card">
           <h3>Applications</h3>
           <ul>
-            <li>Biomedical and healthcare applications</li>
-            <li>Decentralized Protocol-driven Systems (e.g., DeFi)</li>
-            <li>Distributed data-centric systems</li>
-            <li>Resource-constrained and heterogeneous clients</li>
+            <li>Biomedical & healthcare systems</li>
+            <li>Distributed data-centric platforms</li>
+            <li>Heterogeneous & resource-limited clients</li>
+            <li>Protocol-driven decentralized systems</li>
           </ul>
         </div>
       </div>
     </section>
 
     <!-- ================= PUBLICATIONS ================= -->
-<section id="publications" class="section">
-  <header class="header">
-    <div>
-      <h2 class="h1">Publications</h2>
-      <!-- <div class="tag">Automatically generated from BibTeX</div> -->
-    </div>
-  </header>
+    <section id="publications" class="section">
+      <h2 class="section-title">Publications</h2>
+      <ol id="pub-list" class="pub-list"></ol>
+    </section>
 
-  <ol id="pub-list"></ol>
-</section>
-
-
-    <!-- ================= CV ================= -->
+    <!-- ================= EDUCATION ================= -->
     <section id="cv" class="section">
-      <header class="header">
-        <div>
-          <h2 class="h1">Educational Background</h2>
-          <!-- <div class="tag">Education & background</div> -->
-        </div>
-      </header>
+      <h2 class="section-title">Educational Background</h2>
 
-      <h3>Education</h3>
-      <ul>
+      <ul class="timeline">
         <li>
           <strong>Ph.D., Computer Science & Technology</strong><br>
           Shenzhen University (2021–2025)<br>
-          Thesis: <em>Federated Bayesian Optimization based on Secure Gaussian Processes</em>
+          <em>Federated Bayesian Optimization based on Secure Gaussian Processes</em>
         </li>
         <li>
           <strong>M.Eng., Information & Communications Engineering</strong><br>
@@ -213,40 +129,16 @@ loadPublications();
 
     <!-- ================= CONTACT ================= -->
     <section id="contact" class="section">
-      <header class="header">
-        <div>
-          <h2 class="h1">Contact & Collaboration</h2>
-          <div class="tag">Postdoc · Research · Collaboration</div>
-        </div>
-      </header>
+      <h2 class="section-title">Contact & Collaboration</h2>
 
       <p>
-        I am actively seeking <strong>postdoctoral and researcher positions</strong> and am open to
-        collaborations related to federated learning, privacy-preserving AI, and Bayesian methods.
+        I am interested in postdoctoral positions, research roles,
+        and collaborations related to federated learning,
+        privacy-preserving AI, and Bayesian methods.
       </p>
 
-      <p>
+      <p class="contact-block">
         <strong>Email:</strong> <a href="mailto:adilnawazin@gmail.com">adilnawazin@gmail.com</a><br>
-        <strong>GitHub:</strong> <a href="https://gitee.com/SZU-AI4H" target="_blank">SZU-AI4H</a><br>
+        <strong>GitHub:</strong> <a href="https://gitee.com/SZU-AI4H">SZU-AI4H</a><br>
         <strong>Google Scholar:</strong>
-        <a href="https://scholar.google.com/citations?user=tWc9ldIAAAAJ&hl=en" target="_blank">profile</a>
-      </p>
-    </section>
-
-  </main>
-</div>
-
-<script>
-  // active navigation highlight
-  function setActive() {
-    document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
-    const id = location.hash ? location.hash.slice(1) : 'home';
-    const link = document.querySelector('.nav a[href="#' + id + '"]');
-    if (link) link.classList.add('active');
-  }
-  window.addEventListener('hashchange', setActive);
-  setActive();
-</script>
-
-</body>
-</html>
+        <a
