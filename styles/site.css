@@ -88,22 +88,16 @@ body{
   font-size:0.9rem;
 }
 
-.social{
-  margin-top:12px;
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
+.social a{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
 }
 
-.social a{
-  padding:6px 10px;
-  border-radius:999px;
-  font-size:0.85rem;
-  font-weight:600;
-  color:var(--accent);
-  border:1px solid rgba(110,231,183,0.4);
-  background:rgba(110,231,183,0.08);
-  text-decoration:none;
+.social svg{
+  width:16px;
+  height:16px;
+  fill:currentColor;
 }
 
 /* Main */
