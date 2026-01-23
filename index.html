@@ -14,77 +14,63 @@
 <!-- pubs -->
 <script>
 async function loadPublications() {
-  try {
-    const res = await fetch('publications.bib');
-    if (!res.ok) throw new Error('BibTeX file not found');
+  const res = await fetch('publications.bib');
+  const text = await res.text();
 
-    const text = await res.text();
-    const entries = text.split('@').slice(1).map(e => '@' + e);
+  const entries = text.split('@').slice(1).map(e => '@' + e);
+  const pubs = [];
 
-    const pubs = [];
+  const field = (e, k) => {
+    const m = e.match(new RegExp(k + '\\s*=\\s*[{\"]([^}\"]+)[}\"]', 'i'));
+    return m ? m[1] : '';
+  };
 
-    const field = (e, k) => {
-      const m = e.match(new RegExp(k + '\\s*=\\s*[{\"]([^}\"]+)[}\"]', 'i'));
-      return m ? m[1].replace(/\s+/g, ' ') : '';
-    };
-
-    entries.forEach(e => {
-      pubs.push({
-        id: e.match(/@\w+\{([^,]+)/)?.[1],
-        title: field(e, 'title'),
-        authors: field(e, 'author'),
-        venue: field(e, 'journal') || field(e, 'booktitle'),
-        year: field(e, 'year'),
-        url: field(e, 'url'),
-        pdf: field(e, 'pdf'),
-        code: field(e, 'code'),
-        bibtex: e.trim()
-      });
+  entries.forEach(e => {
+    pubs.push({
+      id: e.match(/@\w+\{([^,]+)/)?.[1],
+      title: field(e, 'title'),
+      authors: field(e, 'author'),
+      venue: field(e, 'journal') || field(e, 'booktitle'),
+      year: field(e, 'year'),
+      url: field(e, 'url'),
+      pdf: field(e, 'pdf'),
+      code: field(e, 'code'),
+      bibtex: e.trim()
     });
+  });
 
-    pubs.sort((a, b) => (b.year || 0) - (a.year || 0));
+  pubs.sort((a, b) => (b.year || 0) - (a.year || 0));
 
-    const list = document.getElementById('pub-list');
-    if (!list) return;
+  const list = document.getElementById('pub-list');
 
-    pubs.forEach(p => {
-      const li = document.createElement('li');
-      li.className = 'pub-item';
+  pubs.forEach(p => {
+    const authors = p.authors.replace(/Nawaz,\s*Adil/g, '<strong>Nawaz, Adil</strong>');
 
-      li.innerHTML = `
-        <div class="pub-title">
-          ${p.url ? `<a href="${p.url}" target="_blank">${p.title}</a>` : p.title}
-        </div>
-        <div class="pub-authors">
-          ${p.authors.replace(/Nawaz,\\s*Adil/gi, '<strong>Nawaz, Adil</strong>')}
-        </div>
-        <div class="pub-venue">
-          ${p.venue}, ${p.year}
-        </div>
-        <div class="pub-links">
-          ${p.pdf ? `<a href="${p.pdf}" target="_blank">[PDF]</a>` : ''}
-          ${p.code ? `<a href="${p.code}" target="_blank">[Code]</a>` : ''}
-          <a href="#" onclick="toggleBib('${p.id}');return false;">[BibTeX]</a>
-        </div>
-        <pre id="bib-${p.id}" class="bibtex">${p.bibtex}</pre>
-      `;
-
-      list.appendChild(li);
-    });
-
-  } catch (err) {
-    console.error(err);
-  }
+    const li = document.createElement('li');
+    li.innerHTML = `
+      <strong>
+        ${p.url ? `<a href="${p.url}" target="_blank" rel="noopener">${p.title}</a>` : p.title}
+      </strong><br>
+      ${authors}<br>
+      <em>${p.venue}</em>, ${p.year}<br>
+      <span style="font-size:0.9rem">
+        ${p.pdf ? `<a href="${p.pdf}" target="_blank">[PDF]</a>` : ''}
+        ${p.code ? ` <a href="${p.code}" target="_blank">[Code]</a>` : ''}
+        <a href="#" onclick="toggleBib('${p.id}');return false;">[BibTeX]</a>
+      </span>
+      <pre id="bib-${p.id}" style="display:none; margin-top:6px; font-size:0.85rem;">${p.bibtex}</pre>
+    `;
+    list.appendChild(li);
+  });
 }
 
 function toggleBib(id) {
   const el = document.getElementById('bib-' + id);
-  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+  el.style.display = el.style.display === 'none' ? 'block' : 'none';
 }
 
-document.addEventListener('DOMContentLoaded', loadPublications);
+loadPublications();
 </script>
-
 <!--  -->
 <body>
 <div class="site">
