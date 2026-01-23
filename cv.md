@@ -2,7 +2,7 @@
 
 - Email: adilnawazin@gmail.com  
 - Phone: +86 15012737665  
-- Google Scholar: (add your profile URL)
+- Google Scholar: https://scholar.google.com/citations?user=tWc9ldIAAAAJ&hl=en
 
 ## Summary
 Researcher working on privacy-preserving machine learning, probabilistic modeling, federated learning, Bayesian methods, and computer vision. Experienced in academic research, teaching, and technical development with strong publication record.
