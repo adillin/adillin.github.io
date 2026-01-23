@@ -95,8 +95,8 @@ body{
 }
 
 .social svg{
-  width:4mm;
-  height:4mm;
+  width: 16px;
+  height: 16px;
   fill:currentColor;
 }
 
