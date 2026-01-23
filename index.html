@@ -3,16 +3,46 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Adil Nawaz — CV</title>
-  <style>body{font-family:system-ui,Arial,sans-serif;max-width:800px;margin:2rem auto;padding:0 1rem}</style>
+  <title>Adil Nawaz — Home</title>
+  <link rel="stylesheet" href="styles/site.css">
 </head>
 <body>
-  <h1>Adil Nawaz, Ph.D.</h1>
-  <p>Email: <a href="mailto:adilnawazin@gmail.com">adilnawazin@gmail.com</a></p>
-  <p>
-    <a href="profile.html">Profile</a> •
-    <a href="cv.html">View CV</a> •
-    <a href="./originals/resume.pdf">Download PDF</a>
-  </p>
+  <!-- ...existing code... -->
+  <div class="site">
+    <aside class="sidebar">
+      <img class="avatar" src="images/photo.jpg" alt="Adil Nawaz">
+      <h1>Adil Nawaz, Ph.D.</h1>
+      <div class="meta">Privacy-preserving ML · Federated Learning · Bayesian methods</div>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="cv.html">CV</a>
+      </nav>
+
+      <div class="contact">
+        <div><a href="mailto:adilnawazin@gmail.com">adilnawazin@gmail.com</a></div>
+        <div class="social">
+          <a href="https://github.com/adi-ll">GitHub</a>
+          <a href="https://scholar.google.com/citations?user=tWc9ldIAAAAJ&hl=en">Google Scholar</a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="header">
+        <div>
+          <h2 class="h1">Welcome</h2>
+          <div class="tag">PhD candidate · research on privacy-preserving ML & Bayesian methods</div>
+        </div>
+      </header>
+
+      <section class="section">
+        <h3>About</h3>
+        <p>Researcher focusing on privacy-preserving machine learning, probabilistic modeling, federated learning and computer vision. See full CV and publications below.</p>
+        <p><a href="profile.html">View profile</a> · <a href="cv.html">View CV</a> · <a href="./originals/resume.pdf">Download PDF</a></p>
+      </section>
+    </main>
+  </div>
 </body>
 </html>

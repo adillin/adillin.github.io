@@ -3,58 +3,38 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Profile — Adil Nawaz, Ph.D.</title>
-  <style>
-    body{font-family:system-ui,Arial,sans-serif;max-width:900px;margin:2rem auto;padding:0 1rem;line-height:1.5}
-    .meta{display:flex;gap:1rem;align-items:center}
-    img.photo{width:120px;height:120px;border-radius:6px;object-fit:cover;border:1px solid #ddd}
-    .links a{margin-right:0.5rem}
-  </style>
+  <title>Profile — Adil Nawaz</title>
+  <link rel="stylesheet" href="styles/site.css">
 </head>
 <body>
-  <a href="index.html">← Home</a>
-  <header>
-    <h1>Adil Nawaz, Ph.D.</h1>
-    <div class="meta">
-      <img class="photo" src="images/photo.jpg" alt="Adil Nawaz photo" />
-      <div>
-        <p><strong>Researcher</strong> — privacy-preserving ML, probabilistic modeling, federated learning, Bayesian methods, computer vision.</p>
-        <p>Email: <a href="mailto:adilnawazin@gmail.com">adilnawazin@gmail.com</a></p>
-        <p class="links">
-          <a href="cv.md">CV (Markdown)</a>
-          <a href="resume.pdf">Resume (PDF)</a>
-          <a href="https://scholar.google.com">Google Scholar</a>
-        </p>
+  <div class="site">
+    <aside class="sidebar">
+      <img class="avatar" src="images/photo.jpg" alt="Adil Nawaz">
+      <h1>Adil Nawaz, Ph.D.</h1>
+      <div class="meta">Privacy-preserving ML · Federated Learning</div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="profile.html" aria-current="page">Profile</a>
+        <a href="cv.html">CV</a>
+      </nav>
+      <div class="contact">
+        <div><a href="mailto:adilnawazin@gmail.com">adilnawazin@gmail.com</a></div>
+        <div class="social"><a href="https://github.com/adi-ll">GitHub</a></div>
       </div>
-    </div>
-  </header>
+    </aside>
 
-  <section>
-    <h2>Current position</h2>
-    <p>Ph.D. Candidate, Shenzhen University (2021–2025). Thesis: Federated Bayesian Optimization based on Secure Gaussian Process.</p>
-  </section>
+    <main class="content">
+      <header class="header">
+        <div>
+          <h2 class="h1">Public Profile</h2>
+          <div class="tag">Short bio and links</div>
+        </div>
+      </header>
 
-  <section>
-    <h2>Selected education</h2>
-    <ul>
-      <li>Ph.D., Computer Science & Technology — Shenzhen University</li>
-      <li>M.Eng., Information & Communications Engineering — South China University of Technology</li>
-      <li>B.Sc., Telecom Engineering — University of Engineering & Technology, Peshawar</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Research interests</h2>
-    <p>Privacy-preserving machine learning; probabilistic modeling; federated learning; Bayesian methods; computer vision.</p>
-  </section>
-
-  <section>
-    <h2>Notes</h2>
-    <p>Add publications, awards, and a downloadable CV/resume PDF into the repo root to keep links working.</p>
-  </section>
-
-  <footer>
-    <p>GitHub: <a href="https://github.com/adi-ll">adi-ll</a></p>
-  </footer>
+      <section class="section">
+        <p>Write a 2–3 sentence polished bio here: your role, main research topics, and what you’re looking for (collaboration, PhD opportunities, postdoc, etc.). I can draft this for you if you want.</p>
+      </section>
+    </main>
+  </div>
 </body>
 </html>

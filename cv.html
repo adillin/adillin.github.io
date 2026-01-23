@@ -1,86 +1,60 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Adil Nawaz — CV</title>
-  <link rel="stylesheet" href="styles/resume.css">
+  <link rel="stylesheet" href="styles/site.css">
 </head>
 <body>
-  <nav class="nav">
-    <a href="index.html">Home</a>
-    <a href="profile.html">Profile</a>
-    <a href="cv.html" aria-current="page">CV</a>
-    <a href="resume.pdf" class="button">Download PDF</a>
-  </nav>
-
-  <main class="container">
-    <header class="header">
-      <div class="left">
-        <h1>Adil Nawaz, Ph.D.</h1>
-        <p class="tagline">Privacy-preserving ML • Probabilistic modeling • Federated learning • Bayesian methods</p>
-        <p class="contact">
-          <a href="mailto:adilnawazin@gmail.com">adilnawazin@gmail.com</a> · +86 15012737665 · <a href="https://scholar.google.com/citations?user=tWc9ldIAAAAJ&hl=en">Google Scholar</a>
-        </p>
+  <!-- ...existing code... -->
+  <div class="site">
+    <aside class="sidebar">
+      <img class="avatar" src="images/photo.jpg" alt="Adil Nawaz">
+      <h1>Adil Nawaz, Ph.D.</h1>
+      <div class="meta">Privacy-preserving ML · Federated Learning · Bayesian methods</div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="cv.html" aria-current="page">CV</a>
+      </nav>
+      <div class="contact">
+        <div><a href="mailto:adilnawazin@gmail.com">adilnawazin@gmail.com</a></div>
+        <div class="social"><a href="originals/resume.pdf">Download PDF</a></div>
       </div>
-      <div class="right">
-        <img src="images/photo.jpg" alt="Adil Nawaz" class="photo" />
-      </div>
-    </header>
+    </aside>
 
-    <section class="section summary">
-      <h2>Profile</h2>
-      <p>Researcher working on privacy-preserving machine learning, probabilistic modeling, federated learning and Bayesian methods. Experienced in academic research, teaching, and engineering with multiple peer-reviewed publications.</p>
-    </section>
+    <main class="content">
+      <header class="header">
+        <div>
+          <h2 class="h1">Curriculum Vitae</h2>
+          <div class="tag">Adil Nawaz — Researcher in privacy-preserving ML</div>
+        </div>
+      </header>
 
-    <section class="section columns">
-      <div class="col main-col">
-        <h2>Experience & Education</h2>
+      <section class="section">
+        <h3>Education</h3>
+        <p><strong>Ph.D.</strong> Computer Science & Technology — Shenzhen University (2021–2025). Thesis: Federated Bayesian Optimization based on Secure Gaussian Process.</p>
+        <p><strong>M.Eng.</strong> SCUT — Information & Communications Engineering (2018–2020). Thesis: Multilingual Scene Text Detection & Recognition using Deep Learning.</p>
+        <p><strong>B.Sc.</strong> UET Peshawar — Telecom Engineering (2010–2014).</p>
+      </section>
 
-        <h3>Ph.D., Computer Science & Technology — Shenzhen University (2021–2025)</h3>
-        <p class="muted">Thesis: Federated Bayesian Optimization based on Secure Gaussian Process</p>
-
-        <h3>M.Eng., Information & Communications Engineering — SCUT (2018–2020)</h3>
-        <p class="muted">Thesis: Multilingual Scene Text Detection & Recognition using Deep Learning</p>
-
-        <h3>B.Sc., Telecom Engineering — UET Peshawar (2010–2014)</h3>
-        <p class="muted">Thesis: Crop Estimation & Geographical Mapping System using Multispectral Satellite Imagery</p>
-
-        <h3>Lecturer — KP Elementary & Secondary Education Department (2015–2018)</h3>
-        <p class="muted">Computer Science & IT</p>
-
-        <h2>Selected Publications</h2>
-        <ol class="publications">
-          <li>A. Nawaz, J. Li, V. C. Leung, S. Wang, and J. Chen — "F2GP: Privacy-preserving federated & fast Gaussian process models…" IEEE TDSC, 2025. <a href="https://ieeexplore.ieee.org/document/11316261">doi</a></li>
-          <li>A. Nawaz, S. Wang, J. Li, and J. Chen — "Federated Bayesian Optimization…" ICLR 2026 (under review).</li>
-          <li>A. Nawaz, G. Chen, M. U. Raza, et al. — "Secure distributed sparse Gaussian Process models…" AAAI 2024. <a href="https://ojs.aaai.org/index.php/AAAI/article/view/29357">link</a></li>
-          <!-- add more items -->
+      <section class="section">
+        <h3>Selected Publications</h3>
+        <ol>
+          <li>A. Nawaz et al., “F2GP: Privacy-preserving federated & fast Gaussian process models…” IEEE TDSC, 2025.</li>
+          <li>A. Nawaz et al., “Secure distributed sparse Gaussian Process models…” AAAI 2024.</li>
+          <li>M. U. Raza et al., “IBATree: Interpretable cancer cell diagnosis…” IEEE BIBM 2024.</li>
         </ol>
-      </div>
+      </section>
 
-      <aside class="col side-col">
-        <h2>Skills</h2>
-        <ul>
-          <li>C++, Python, R, Matlab, LaTeX</li>
-          <li>Privacy-preserving ML, Federated Learning, Bayesian methods</li>
-          <li>English (fluent), Mandarin (intermediate)</li>
-        </ul>
+      <section class="section">
+        <h3>Skills & Awards</h3>
+        <p>C++, Python, R, Matlab, LaTeX. Chinese Government Scholarship (2018), Shenzhen University Outstanding Innovative Talent Scholarship (2024), AAAI Travel Scholarship.</p>
+      </section>
 
-        <h2>Awards</h2>
-        <ul>
-          <li>Shenzhen University Outstanding Innovative Talent Scholarship (Special Prize), 2024</li>
-          <li>Chinese Government Scholarship (CGS), 2018</li>
-          <li>AAAI Travel Scholarship</li>
-        </ul>
-
-        <h2>References</h2>
-        <p>Victor C. M. Leung — vleung@ieee.org<br/>Jie Chen — chenjie@szu.edu.cn</p>
-      </aside>
-    </section>
-
-    <footer class="footer">
-      <p>© Adil Nawaz — <a href="https://github.com/adi-ll">adi-ll</a></p>
-    </footer>
-  </main>
+    </main>
+  </div>
+  <!-- ...existing code... -->
 </body>
 </html>
