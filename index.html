@@ -168,14 +168,18 @@ loadPublications();
         <ul>
             <li>
             <strong>
-                <a href="https://en.wikipedia.org/wiki/Differential_privacy" target="_blank">
+                <a href="https://arxiv.org/pdf/2108.04417" target="_blank">
                 Privacy-Preserving Machine Learning
                 </a>
-            </strong><br>
-            Designing learning algorithms that guarantee formal privacy protection
-            (e.g., differential privacy, secure aggregation, homomorphic encryption)
-            while maintaining model utility. Mathematically, this often involves
-            bounding information leakage under randomized mechanisms.
+            </strong>
+            <button class="toggle-btn"
+                onclick="toggleDetails('ppml', this)">Read more ▸</button>
+
+            <div id="ppml" class="details" style="display:none;">
+                Designing learning algorithms that guarantee formal privacy protection
+                (e.g., differential privacy, MPC, homomorphic encryption)
+                while maintaining model utility.
+            </div>
             </li>
 
             <li>
@@ -183,21 +187,29 @@ loadPublications();
                 <a href="https://ai.googleblog.com/2017/04/federated-learning-collaborative.html" target="_blank">
                 Federated & Decentralized Learning
                 </a>
-            </strong><br>
-            Training models across multiple clients without sharing raw data.
-            This setting can be formulated as minimizing a global objective
-            <em>∑ᵢ fᵢ(θ)</em> under communication and privacy constraints.
+            </strong>
+            <button class="toggle-btn"
+                onclick="toggleDetails('fed', this)">Read more ▸</button>
+
+            <div id="fed" class="details" style="display:none;">
+                Training models across multiple clients without sharing raw data under
+                communication and privacy constraints.
+            </div>
             </li>
 
             <li>
             <strong>
-                <a href="https://en.wikipedia.org/wiki/Bayesian_optimization" target="_blank">
+                <a href="https://arxiv.org/pdf/1807.02811" target="_blank">
                 Bayesian Optimization
                 </a>
-            </strong><br>
-            Sample-efficient optimization of expensive black-box functions using
-            probabilistic surrogate models. The key idea is to balance
-            <em>exploration</em> and <em>exploitation</em> via acquisition functions.
+            </strong>
+            <button class="toggle-btn"
+                onclick="toggleDetails('bo', this)">Read more ▸</button>
+
+            <div id="bo" class="details" style="display:none;">
+                Sample-efficient optimization of expensive black-box functions using
+                probabilistic surrogate models.
+            </div>
             </li>
 
             <li>
@@ -205,10 +217,15 @@ loadPublications();
                 <a href="http://www.gaussianprocess.org/gpml/" target="_blank">
                 Gaussian Processes
                 </a>
-            </strong><br>
-            Non-parametric Bayesian models defined by a mean function and kernel
-            covariance. They provide principled uncertainty estimation and closed-form
-            posterior inference under Gaussian assumptions.
+            </strong>
+            <button class="toggle-btn"
+                onclick="toggleDetails('gp', this)">Read more ▸</button>
+
+            <div id="gp" class="details" style="display:none;">
+                Non-parametric Bayesian models defined by a mean function and kernel
+                covariance. They provide principled uncertainty estimation and
+                closed-form posterior inference under Gaussian assumptions.
+            </div>
             </li>
 
             <li>
@@ -216,10 +233,15 @@ loadPublications();
                 <a href="https://web.stanford.edu/~boyd/papers/pdf/admm_distr_stats.pdf" target="_blank">
                 Secure & Distributed Optimization
                 </a>
-            </strong><br>
-            Optimization methods (e.g., ADMM, decentralized consensus) adapted to
-            secure and privacy-aware settings, enabling collaborative learning across
-            untrusted or heterogeneous participants.
+            </strong>
+            <button class="toggle-btn"
+                onclick="toggleDetails('opt', this)">Read more ▸</button>
+
+            <div id="opt" class="details" style="display:none;">
+                Optimization methods (e.g., ADMM, decentralized consensus) adapted to
+                secure and privacy-aware settings, enabling collaborative learning across
+                untrusted or heterogeneous participants.
+            </div>
             </li>
         </ul>
         </div>
@@ -230,27 +252,47 @@ loadPublications();
 
         <ul>
             <li>
-            <strong>Biomedical & Healthcare AI</strong><br>
-            Privacy-sensitive modeling of medical and health-related data across
-            institutions, where data sharing is restricted by legal and ethical constraints.
+            <strong>Biomedical & Healthcare AI</strong>
+            <button class="toggle-btn"
+                onclick="toggleDetails('bio', this)">Read more ▸</button>
+
+            <div id="bio" class="details" style="display:none;">
+                Privacy-sensitive modeling of medical and health-related data across
+                institutions, where data sharing is restricted by legal and ethical constraints.
+            </div>
             </li>
 
             <li>
-            <strong>Distributed Data-Centric Systems</strong><br>
-            Learning from geographically distributed and statistically heterogeneous
-            data sources with limited communication budgets.
+            <strong>Distributed Data-Centric Systems</strong>
+            <button class="toggle-btn"
+                onclick="toggleDetails('dds', this)">Read more ▸</button>
+
+            <div id="dds" class="details" style="display:none;">
+                Learning from geographically distributed and statistically heterogeneous
+                data sources with limited communication budgets.
+            </div>
             </li>
 
             <li>
-            <strong>Resource-Constrained & Heterogeneous Clients</strong><br>
-            Designing adaptive algorithms that account for varying compute, bandwidth,
-            and data quality across clients.
+            <strong>Resource-Constrained & Heterogeneous Clients</strong>
+            <button class="toggle-btn"
+                onclick="toggleDetails('hetero', this)">Read more ▸</button>
+
+            <div id="hetero" class="details" style="display:none;">
+                Designing adaptive algorithms that account for varying compute, bandwidth,
+                and data quality across clients.
+            </div>
             </li>
 
             <li>
-            <strong>Protocol-Driven & Trustworthy AI Systems</strong><br>
-            Integrating learning algorithms with cryptographic and system-level protocols
-            to ensure robustness, privacy, and reliability.
+            <strong>Protocol-Driven & Trustworthy AI Systems</strong>
+            <button class="toggle-btn"
+                onclick="toggleDetails('proto', this)">Read more ▸</button>
+
+            <div id="proto" class="details" style="display:none;">
+                Integrating learning algorithms with cryptographic and system-level protocols
+                to ensure robustness, privacy, and reliability.
+            </div>
             </li>
         </ul>
         </div>
@@ -314,6 +356,14 @@ loadPublications();
             arXiv
         </a>
         </li>
+        
+        <li>
+        <strong>Liu et al.</strong>
+        <em>Recent advances on federated learning: A systematic survey</em><br>
+        <a href="https://www.sciencedirect.com/science/article/pii/S0925231224007902" target="_blank">
+            Neurocomputing Journal
+        </a>
+        </li>
 
         <li>
         <strong>Rasmussen & Williams.</strong>
@@ -326,16 +376,16 @@ loadPublications();
         <li>
         <strong>Shahriari et al.</strong>
         <em>Taking the Human Out of the Loop: A Review of Bayesian Optimization</em><br>
-        <a href="https://arxiv.org/abs/1406.3896" target="_blank">
-            arXiv
+        <a href="https://www.cs.ox.ac.uk/people/nando.defreitas/publications/BayesOptLoop.pdf" target="_blank">
+            PDF
         </a>
         </li>
 
         <li>
-        <strong>Boyd et al.</strong>
-        <em>Distributed Optimization and Statistical Learning via ADMM</em><br>
-        <a href="https://web.stanford.edu/~boyd/papers/pdf/admm_distr_stats.pdf" target="_blank">
-            PDF
+        <strong>Wang et al.</strong>
+        <em>Recent Advances in Bayesian Optimization</em><br>
+        <a href="https://dl.acm.org/doi/pdf/10.1145/3582078" target="_blank">
+            ACM Computing Surveys
         </a>
         </li>
     </ul>
@@ -385,4 +435,16 @@ setActive();
 <script src="publications.js"></script>
 
 </body>
+
+<script>
+function toggleDetails(id, btn) {
+  const el = document.getElementById(id);
+  const isHidden = el.style.display === 'none';
+
+  el.style.display = isHidden ? 'block' : 'none';
+  btn.textContent = isHidden ? 'Hide ▾' : 'Read more ▸';
+}
+</script>
+
+
 </html>

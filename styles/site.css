@@ -155,8 +155,35 @@ body{
   margin-bottom:14px;
 }
 
+
+.toggle-btn{
+  margin-left:8px;
+  background:none;
+  border:none;
+  color:#2563eb;
+  font-size:0.85rem;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.toggle-btn:hover{
+  text-decoration:underline;
+}
+
+.details{
+  margin-top:6px;
+  padding-left:12px;
+  color:#374151;
+  font-size:0.95rem;
+  line-height:1.5;
+  max-width:720px;
+}
+
+
 /* Responsive */
 @media(max-width:900px){
   .site{ flex-direction:column; }
   .sidebar{ width:100%; }
 }
+
+
