@@ -48,9 +48,7 @@ async function loadPublications() {
 
     const li = document.createElement('li');
     li.innerHTML = `
-      <strong>
-        // ${p.url ? `<a href="${p.url}" target="_blank" rel="noopener">${p.title}</a>` : p.title}
-      </strong><br>
+      <strong>${p.title}</strong><br>
       ${authors}<br>
       <em>${p.venue}</em>, ${p.year}<br>
       <span style="font-size:0.9rem">
