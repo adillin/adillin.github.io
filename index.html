@@ -149,31 +149,115 @@ loadPublications();
 
     <!-- ================= RESEARCH ================= -->
     <section id="research" class="section">
-      <h2 class="section-title">Research Interests</h2>
+    <h2 class="section-title">Research Interests</h2>
 
-      <div class="columns">
+    <p style="max-width:820px;">
+        My research focuses on developing <strong>theoretically grounded and scalable
+        learning algorithms</strong> for distributed environments where data privacy,
+        communication constraints, and system heterogeneity are fundamental challenges.
+        I am particularly interested in probabilistic modeling and optimization methods
+        that enable trustworthy and decentralized AI systems.
+    </p>
+
+    <div class="columns">
+
+        <!-- ================= Core Methods ================= -->
         <div class="card">
-          <h3>Core Methods</h3>
-          <ul>
-            <li>Privacy-preserving machine learning</li>
-            <li>Federated & decentralized learning</li>
-            <li>Bayesian optimization</li>
-            <li>Gaussian processes</li>
-            <li>Secure distributed optimization</li>
-          </ul>
+        <h3>Core Research Directions</h3>
+
+        <ul>
+            <li>
+            <strong>
+                <a href="https://en.wikipedia.org/wiki/Differential_privacy" target="_blank">
+                Privacy-Preserving Machine Learning
+                </a>
+            </strong><br>
+            Designing learning algorithms that guarantee formal privacy protection
+            (e.g., differential privacy, secure aggregation, homomorphic encryption)
+            while maintaining model utility. Mathematically, this often involves
+            bounding information leakage under randomized mechanisms.
+            </li>
+
+            <li>
+            <strong>
+                <a href="https://ai.googleblog.com/2017/04/federated-learning-collaborative.html" target="_blank">
+                Federated & Decentralized Learning
+                </a>
+            </strong><br>
+            Training models across multiple clients without sharing raw data.
+            This setting can be formulated as minimizing a global objective
+            <em>∑ᵢ fᵢ(θ)</em> under communication and privacy constraints.
+            </li>
+
+            <li>
+            <strong>
+                <a href="https://en.wikipedia.org/wiki/Bayesian_optimization" target="_blank">
+                Bayesian Optimization
+                </a>
+            </strong><br>
+            Sample-efficient optimization of expensive black-box functions using
+            probabilistic surrogate models. The key idea is to balance
+            <em>exploration</em> and <em>exploitation</em> via acquisition functions.
+            </li>
+
+            <li>
+            <strong>
+                <a href="http://www.gaussianprocess.org/gpml/" target="_blank">
+                Gaussian Processes
+                </a>
+            </strong><br>
+            Non-parametric Bayesian models defined by a mean function and kernel
+            covariance. They provide principled uncertainty estimation and closed-form
+            posterior inference under Gaussian assumptions.
+            </li>
+
+            <li>
+            <strong>
+                <a href="https://web.stanford.edu/~boyd/papers/pdf/admm_distr_stats.pdf" target="_blank">
+                Secure & Distributed Optimization
+                </a>
+            </strong><br>
+            Optimization methods (e.g., ADMM, decentralized consensus) adapted to
+            secure and privacy-aware settings, enabling collaborative learning across
+            untrusted or heterogeneous participants.
+            </li>
+        </ul>
         </div>
 
+        <!-- ================= Applications ================= -->
         <div class="card">
-          <h3>Applications</h3>
-          <ul>
-            <li>Biomedical & healthcare systems</li>
-            <li>Distributed data-centric platforms</li>
-            <li>Heterogeneous & resource-limited clients</li>
-            <li>Protocol-driven decentralized systems</li>
-          </ul>
+        <h3>Application Domains</h3>
+
+        <ul>
+            <li>
+            <strong>Biomedical & Healthcare AI</strong><br>
+            Privacy-sensitive modeling of medical and health-related data across
+            institutions, where data sharing is restricted by legal and ethical constraints.
+            </li>
+
+            <li>
+            <strong>Distributed Data-Centric Systems</strong><br>
+            Learning from geographically distributed and statistically heterogeneous
+            data sources with limited communication budgets.
+            </li>
+
+            <li>
+            <strong>Resource-Constrained & Heterogeneous Clients</strong><br>
+            Designing adaptive algorithms that account for varying compute, bandwidth,
+            and data quality across clients.
+            </li>
+
+            <li>
+            <strong>Protocol-Driven & Trustworthy AI Systems</strong><br>
+            Integrating learning algorithms with cryptographic and system-level protocols
+            to ensure robustness, privacy, and reliability.
+            </li>
+        </ul>
         </div>
-      </div>
+
+    </div>
     </section>
+
 
 
     <!-- ================= EDUCATION ================= -->
@@ -196,6 +280,67 @@ loadPublications();
         </li>
       </ul>
     </section>    
+
+    <!-- References and learning materials -->
+    <section id="references" class="section">
+    <h2 class="section-title">References & Learning Materials</h2>
+
+    <p style="max-width:820px;">
+        The following books, surveys, and seminal papers form the theoretical and
+        methodological foundations of my research.
+    </p>
+
+    <ul>
+        <li>
+        <strong>Dwork & Roth.</strong>
+        <em>The Algorithmic Foundations of Differential Privacy</em><br>
+        <a href="https://www.cis.upenn.edu/~aaroth/Papers/privacybook.pdf" target="_blank">
+            PDF
+        </a>
+        </li>
+
+        <li>
+        <strong>McMahan et al.</strong>
+        <em>Communication-Efficient Learning of Deep Networks from Decentralized Data</em><br>
+        <a href="https://arxiv.org/abs/1602.05629" target="_blank">
+            arXiv
+        </a>
+        </li>
+
+        <li>
+        <strong>Kairouz et al.</strong>
+        <em>Advances and Open Problems in Federated Learning</em><br>
+        <a href="https://arxiv.org/abs/1912.04977" target="_blank">
+            arXiv
+        </a>
+        </li>
+
+        <li>
+        <strong>Rasmussen & Williams.</strong>
+        <em>Gaussian Processes for Machine Learning</em><br>
+        <a href="http://www.gaussianprocess.org/gpml/" target="_blank">
+            Book Website
+        </a>
+        </li>
+
+        <li>
+        <strong>Shahriari et al.</strong>
+        <em>Taking the Human Out of the Loop: A Review of Bayesian Optimization</em><br>
+        <a href="https://arxiv.org/abs/1406.3896" target="_blank">
+            arXiv
+        </a>
+        </li>
+
+        <li>
+        <strong>Boyd et al.</strong>
+        <em>Distributed Optimization and Statistical Learning via ADMM</em><br>
+        <a href="https://web.stanford.edu/~boyd/papers/pdf/admm_distr_stats.pdf" target="_blank">
+            PDF
+        </a>
+        </li>
+    </ul>
+    </section>
+
 
     <!-- ================= PUBLICATIONS ================= -->
     <section id="publications" class="section">
