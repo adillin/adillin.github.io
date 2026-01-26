@@ -172,8 +172,8 @@ loadPublications();
                 Privacy-Preserving Machine Learning
                 </a>
             </strong>
-            <button class="toggle-btn"
-                onclick="toggleDetails('ppml', this)">Read more ▸</button>
+            <span class="toggle-link"
+            onclick="toggleDetails('ppml', this)">Read more</span>
 
             <div id="ppml" class="details" style="display:none;">
                 Designing learning algorithms that guarantee formal privacy protection
@@ -188,8 +188,8 @@ loadPublications();
                 Federated & Decentralized Learning
                 </a>
             </strong>
-            <button class="toggle-btn"
-                onclick="toggleDetails('fed', this)">Read more ▸</button>
+            <span class="toggle-link"
+            onclick="toggleDetails('fed', this)">Read more</span>
 
             <div id="fed" class="details" style="display:none;">
                 Training models across multiple clients without sharing raw data under
@@ -203,8 +203,8 @@ loadPublications();
                 Bayesian Optimization
                 </a>
             </strong>
-            <button class="toggle-btn"
-                onclick="toggleDetails('bo', this)">Read more ▸</button>
+            <span class="toggle-link"
+            onclick="toggleDetails('bo', this)">Read more</span>
 
             <div id="bo" class="details" style="display:none;">
                 Sample-efficient optimization of expensive black-box functions using
@@ -218,8 +218,8 @@ loadPublications();
                 Gaussian Processes
                 </a>
             </strong>
-            <button class="toggle-btn"
-                onclick="toggleDetails('gp', this)">Read more ▸</button>
+            <span class="toggle-link"
+            onclick="toggleDetails('gp', this)">Read more</span>
 
             <div id="gp" class="details" style="display:none;">
                 Non-parametric Bayesian models defined by a mean function and kernel
@@ -234,8 +234,8 @@ loadPublications();
                 Secure & Distributed Optimization
                 </a>
             </strong>
-            <button class="toggle-btn"
-                onclick="toggleDetails('opt', this)">Read more ▸</button>
+            <span class="toggle-link"
+            onclick="toggleDetails('opt', this)">Read more</span>
 
             <div id="opt" class="details" style="display:none;">
                 Optimization methods (e.g., ADMM, decentralized consensus) adapted to
@@ -253,8 +253,8 @@ loadPublications();
         <ul>
             <li>
             <strong>Biomedical & Healthcare AI</strong>
-            <button class="toggle-btn"
-                onclick="toggleDetails('bio', this)">Read more ▸</button>
+            <span class="toggle-link"
+            onclick="toggleDetails('bio', this)">Read more</span>
 
             <div id="bio" class="details" style="display:none;">
                 Privacy-sensitive modeling of medical and health-related data across
@@ -264,8 +264,8 @@ loadPublications();
 
             <li>
             <strong>Distributed Data-Centric Systems</strong>
-            <button class="toggle-btn"
-                onclick="toggleDetails('dds', this)">Read more ▸</button>
+            <span class="toggle-link"
+            onclick="toggleDetails('dds', this)">Read more</span>
 
             <div id="dds" class="details" style="display:none;">
                 Learning from geographically distributed and statistically heterogeneous
@@ -275,8 +275,8 @@ loadPublications();
 
             <li>
             <strong>Resource-Constrained & Heterogeneous Clients</strong>
-            <button class="toggle-btn"
-                onclick="toggleDetails('hetero', this)">Read more ▸</button>
+            <span class="toggle-link"
+            onclick="toggleDetails('hetero', this)">Read more</span>
 
             <div id="hetero" class="details" style="display:none;">
                 Designing adaptive algorithms that account for varying compute, bandwidth,
@@ -286,8 +286,8 @@ loadPublications();
 
             <li>
             <strong>Protocol-Driven & Trustworthy AI Systems</strong>
-            <button class="toggle-btn"
-                onclick="toggleDetails('proto', this)">Read more ▸</button>
+            <span class="toggle-link"
+            onclick="toggleDetails('proto', this)">Read more</span>
 
             <div id="proto" class="details" style="display:none;">
                 Integrating learning algorithms with cryptographic and system-level protocols
@@ -437,12 +437,11 @@ setActive();
 </body>
 
 <script>
-function toggleDetails(id, btn) {
-  const el = document.getElementById(id);
-  const isHidden = el.style.display === 'none';
-
-  el.style.display = isHidden ? 'block' : 'none';
-  btn.textContent = isHidden ? 'Hide ▾' : 'Read more ▸';
+function toggleDetails(id, el) {
+  const target = document.getElementById(id);
+  const open = target.style.display === 'block';
+  target.style.display = open ? 'none' : 'block';
+  el.textContent = open ? 'Read more' : 'Hide';
 }
 </script>
 
