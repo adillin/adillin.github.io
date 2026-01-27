@@ -183,4 +183,21 @@ body{
   .sidebar{ width:100%; }
 }
 
+/* make sidebar contact/social/resume links high-contrast and accessible */
+.social a,
+.contact > a,
+.resume a {
+  color: var(--content); /* white on dark background */
+  text-decoration: none;
+  font-weight: 600;
+}
 
+.social a:hover,
+.contact > a:hover,
+.resume a:hover {
+  color: var(--accent);   /* subtle accent on hover */
+  text-decoration: underline;
+}
+
+/* ensure SVG icons follow the link color */
+.social svg { fill: currentColor; }
