@@ -1,0 +1,23 @@
+:root {
+  --primary-color: #4a90e2; /* Bright blue for primary elements */
+  --secondary-color: #50e3c2; /* Teal for accents */
+  --background-color: #f5f7fa; /* Light background for contrast */
+  --text-color: #333; /* Dark text for readability */
+  --muted-text-color: #777; /* Muted text for secondary information */
+  --border-color: #e0e0e0; /* Light border for separation */
+  
+  --font-family: 'Inter', sans-serif; /* Main font family */
+  
+  --border-radius: 8px; /* Rounded corners for elements */
+  --spacing-small: 8px; /* Small spacing */
+  --spacing-medium: 16px; /* Medium spacing */
+  --spacing-large: 24px; /* Large spacing */
+  
+  --transition-speed: 0.3s; /* Transition speed for animations */
+  
+  /* Color palette for themes */
+  --theme-light-bg: #ffffff; /* Light theme background */
+  --theme-dark-bg: #1a1a1a; /* Dark theme background */
+  --theme-light-text: #000000; /* Light theme text color */
+  --theme-dark-text: #ffffff; /* Dark theme text color */
+}
