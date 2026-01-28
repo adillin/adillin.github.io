@@ -1,3 +1,4 @@
+/* ...existing code... */
 :root{
   --bg-0: #071021;
   --bg-1: linear-gradient(180deg,#071021 0%, #081427 60%);
@@ -37,6 +38,8 @@ body{
   border-bottom: 1px solid rgba(255,255,255,0.03);
   padding:12px 20px;
 }
+
+/* make sure list is horizontal and centered, no bullets */
 .banner ul{
   max-width:var(--maxw);
   margin:0 auto;
@@ -45,7 +48,11 @@ body{
   gap:20px;
   list-style:none;
   align-items:center;
+  justify-content:center; /* center links */
+  flex-wrap:wrap;
 }
+.banner li { list-style: none; } /* remove bullets in case browser shows them */
+
 .banner a{
   color:var(--muted);
   text-decoration:none;
@@ -88,23 +95,43 @@ body{
 #about p{ color:var(--muted); max-width:420px; }
 
 /* center column: research cards / quick access */
-.columns{ display:flex; gap:20px; align-items:flex-start; flex-wrap:wrap }
+/* keep cards side-by-side on wider viewports and readable contrast */
+.columns{
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
+  flex-wrap:nowrap; /* prefer two-column layout on desktop */
+}
+
+/* improved card contrast and flexible sizing */
 .card{
-  background:var(--card);
+  flex: 1 1 0;
+  min-width: 260px;
+  max-width: 520px;
+  background: #fbfdff;             /* light card for contrast */
+  color: #081227;                 /* dark card text */
   border-radius:12px;
   padding:18px;
-  width:240px;
-  box-shadow: var(--shadow);
-  transition: transform .22s cubic-bezier(.2,.9,.2,1), box-shadow .18s;
-  border: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 10px 30px rgba(8,16,40,0.35);
+  transition: transform .22s cubic-bezier(.2,.9,.2,1), box-shadow .18s, border-color .18s;
+  border: 1px solid rgba(8,18,40,0.06);
 }
-.card h3{ color:var(--text); margin-top:0; margin-bottom:8px; font-size:1.05rem; }
-.card p{ color:var(--muted); font-size:0.95rem; margin:0; }
+.card h3{
+  color:#052034;
+  margin-top:0;
+  margin-bottom:8px;
+  font-size:1.05rem;
+}
+.card p, .card .details{
+  color: rgba(6,18,36,0.72);
+  font-size:0.95rem;
+  margin:0;
+}
 
-/* hover effect */
+/* hover effect (keeps readable outline) */
 .card:hover{
   transform: translateY(-8px);
-  box-shadow:0 20px 40px rgba(8,16,40,0.6);
+  box-shadow:0 20px 40px rgba(6,12,30,0.45);
   border: 1px solid rgba(124,108,255,0.18);
 }
 
@@ -152,14 +179,19 @@ footer{
 .button{ background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#06222a; padding:8px 12px; border-radius:8px; text-decoration:none; font-weight:700; }
 
 /* responsive */
+/* stack grid to two columns and then one column on smaller screens */
 @media (max-width:1100px){
   .site{ grid-template-columns: 1fr 1fr; }
   footer{ grid-column:1 / -1 }
+  .columns { flex-wrap:wrap; } /* allow wrapping when space limited */
 }
-@media (max-width:800px){
-  .banner ul{ justify-content: center; gap:12px; flex-wrap:wrap }
+@media (max-width:900px){
   .site{ grid-template-columns: 1fr; margin:16px; padding:12px }
-  #logos{ justify-content:flex-start; flex-wrap:wrap }
-  .card{ width:100%; }
+  .card{ max-width:100%; width:100%; flex:1 1 100%; }
   .footer-columns{ flex-direction:column; gap:12px }
+  #logos{ justify-content:flex-start; flex-wrap:wrap }
+}
+@media (max-width:600px){
+  .banner ul{ justify-content: center; gap:12px; flex-wrap:wrap }
+  .banner a{ padding:6px 8px; font-size:0.95rem; }
 }
