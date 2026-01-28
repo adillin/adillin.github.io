@@ -1,57 +1,48 @@
-# My Webpage
+# Personal-Website
+# Darshan Bajgain Portfolio Website
 
-This project is a personal webpage for showcasing research, publications, and professional achievements. It is designed to provide a comprehensive overview of the author's work in the field of privacy-preserving machine learning and related areas.
+This is a simple personal portfolio website created by Darshan Bajgain. It is a platform to showcase your work, share your resume, 
+and give you contact information so you can connect with them. The website uses HTML, CSS (with Tailwind CSS), and JavaScript. You can use this as a template.
 
-## Project Structure
+## Live Preview: [click here](https://darshanbajgain.github.io/Perosnal-Website/)
 
-- **index.html**: The main HTML file that serves as the entry point for the webpage.
-- **styles/**: Contains CSS files for styling the webpage.
-  - **site.css**: The main stylesheet for the webpage.
-- **scripts/**: Contains JavaScript files for interactive functionalities.
-  - **main.js**: The primary script for handling webpage interactions.
-  - **publications.js**: Script for loading and displaying publications.
-- **data/**: Contains data files.
-  - **publications.bib**: Bibliography file for publications.
-- **components/**: Contains reusable HTML components.
-  - **header.html**: The header section of the webpage.
-  - **banner.html**: The horizontal banner with navigation links.
-  - **about.html**: The "About Me" section.
-  - **research.html**: The "Research" section with cards for research directions and applications.
-  - **footer.html**: The footer section with contact information and links.
-- **assets/**: Contains images and fonts.
-  - **icons/**: Directory for SVG icons.
-    - **university.svg**: Logo icon for the university.
-    - **lab.svg**: Logo icon for the lab.
-  - **fonts/**: Directory for custom fonts.
-- **.gitignore**: Specifies files and directories to be ignored by Git.
-- **package.json**: Contains metadata about the project and its dependencies.
-- **README.md**: This file, providing an overview of the project.
+## Table of Contents
+
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [How to Use](#how-to-use)
 
 ## Features
 
-- **Horizontal Banner**: Links to HomePage, Publications, Honors/Awards, and Services.
-- **About Me Section**: A brief introduction to the author.
-- **Research Section**: Two cards highlighting research directions and applications.
-- **Quick Access Links**: Direct links to codebase and learning materials.
-- **University and Lab Logos**: Icons linked to the current university and lab.
-- **Footer**: Contains three columns for email and address, links to GitHub and Google Scholar, and an inspirational quote.
+- Home section with a brief introduction and buttons for navigation.
+- About section with a short bio and a list of tools and technologies.
+- Projects section to display featured projects with images and links.
+- Contact section with contact information and a contact form.
+- A responsive design for various screen sizes.
+- A sticky navigation bar with smooth scrolling.
+- Mobile-friendly navigation menu.
+- Icons and images for visual appeal.
+- JS particles background with different shapes.
 
-## Installation
+## Technologies Used
 
-1. Clone the repository:
+- HTML
+- CSS (Tailwind CSS)
+- JavaScript
+- [Font Awesome](https://fontawesome.com/) for icons
+
+- [Formspree](https://formspree.io/) for the contact form
+   use your Formspree URL in the code below:
+   ```bash
+       
+         <form action="{use your formspree URL here}" method="POST">
+
    ```
-   git clone <repository-url>
-   ```
-2. Navigate to the project directory:
-   ```
-   cd mywebpage
-   ```
-3. Open `index.html` in a web browser to view the webpage.
 
-## Usage
 
-Feel free to explore the webpage and its components. You can modify the content in the `data/publications.bib` file to update the publications section. The styles can be adjusted in `styles/site.css` to customize the appearance.
+## How to Use
 
-## License
+1. Clone the repository to your local machine.
 
-This project is licensed under the MIT License. See the LICENSE file for more details.
+   ```bash
+   https://github.com/darshanbajgain/Perosnal-Website.git
