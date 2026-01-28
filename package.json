@@ -1,0 +1,22 @@
+{
+  "name": "mywebpage",
+  "version": "1.0.0",
+  "description": "A personal webpage for showcasing research, publications, and professional achievements.",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server",
+    "build": "npm run build",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "webpage",
+    "portfolio",
+    "research",
+    "publications"
+  ],
+  "author": "Adil Nawaz",
+  "license": "MIT",
+  "dependencies": {
+    "live-server": "^1.2.1"
+  }
+}
