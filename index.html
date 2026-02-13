@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+  <title>Adil Nawaz, Ph.D. — Privacy-Preserving Machine Learning</title>
+
+  <meta name="description"
+        content="Adil Nawaz — Ph.D. researcher in privacy-preserving machine learning, federated learning, and Bayesian optimization. Seeking postdoctoral and research positions.">
+
+  <link rel="stylesheet" href="styles/site.css">
+</head>
+<!-- pubs -->
+<script>
+async function loadPublications() {
+  const res = await fetch('publications.bib');
+  const text = await res.text();
+
+  const entries = text.split('@').slice(1).map(e => '@' + e);
+  const pubs = [];
+
+  const field = (e, k) => {
+    const m = e.match(new RegExp(k + '\\s*=\\s*[{\"]([^}\"]+)[}\"]', 'i'));
+    return m ? m[1] : '';
+  };
+
+  entries.forEach(e => {
+    pubs.push({
+      id: e.match(/@\w+\{([^,]+)/)?.[1],
+      title: field(e, 'title'),
+      authors: field(e, 'author'),
+      venue: field(e, 'journal') || field(e, 'booktitle'),
+      year: field(e, 'year'),
+      url: field(e, 'url'),
+      pdf: field(e, 'pdf'),
+      code: field(e, 'code'),
+      bibtex: e.trim()
+    });
+  });
+
+  pubs.sort((a, b) => (b.year || 0) - (a.year || 0));
+
+  const list = document.getElementById('pub-list');
+
+  pubs.forEach(p => {
+    const authors = p.authors.replace(/Nawaz,\s*Adil/g, '<strong>Nawaz, Adil</strong>');
+
+    const li = document.createElement('li');
+    li.innerHTML = `
+    <strong><em>${p.title}</em></strong><br>
+      ${authors}<br>
+      <em>${p.venue}</em>, ${p.year}<br>
+      <span style="font-size:0.9rem">
+        ${p.pdf ? `<a href="${p.pdf}" target="_blank">[PDF]</a>` : ''}
+        ${p.code ? ` <a href="${p.code}" target="_blank">[Code]</a>` : ''}
+        <a href="#" onclick="toggleBib('${p.id}');return false;">[BibTeX]</a>
+      </span>
+      <pre id="bib-${p.id}" style="display:none; margin-top:6px; font-size:0.85rem;">${p.bibtex}</pre>
+    `;
+    list.appendChild(li);
+  });
+}
+
+function toggleBib(id) {
+  const el = document.getElementById('bib-' + id);
+  el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+
+loadPublications();
+</script>
+<!--  -->
+<body>
+<div class="site">
+
+  <!-- ================= Sidebar ================= -->
+  <aside class="sidebar">
+    <img class="avatar" src="images/photo.jpg" alt="Adil Nawaz">
+
+    <h1>Adil Nawaz, Ph.D.</h1>
+    <div class="meta">
+      Trustworthy AI · Federated Learning · Bayesian Optimization
+    </div>
+
+    <nav class="nav">
+      <a href="#home">Home</a>
+      <a href="#research">Research</a>
+      <a href="#education">Education</a>
+      <a href="#awards">Awards</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="contact">
+      <a href="mailto:adilnawazin@gmail.com">adilnawazin@gmail.com</a>
+    <div class="social">
+    <a href="https://gitee.com/SZU-AI4H" target="_blank" aria-label="SZU-AI4H">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 0.5C5.37 0.5 0 5.87 0 12.5c0 5.29 3.438 9.773 8.207 11.366.6.113.793-.26.793-.577 0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.746.083-.73.083-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.998.108-.775.418-1.305.762-1.605-2.665-.303-5.467-1.333-5.467-5.93 0-1.31.467-2.38 1.235-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 0 1 3.003-.404c1.02.005 2.047.138 3.003.404 2.29-1.552 3.296-1.23 3.296-1.23.654 1.652.243 2.873.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.624-5.48 5.92.43.37.823 1.096.823 2.21 0 1.594-.014 2.878-.014 3.27 0 .32.19.694.8.576C20.565 22.27 24 17.79 24 12.5 24 5.87 18.63.5 12 .5z"/>
+        </svg>
+        GitHub
+    </a>
+
+    <a href="https://scholar.google.com/citations?user=tWc9ldIAAAAJ&hl=en"
+        target="_blank" aria-label="Google Scholar">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 0L1 5l11 5 9-4.09V17h2V5L12 0zm-7 9.91V17l7 4 7-4V9.91l-7 3.18-7-3.18z"/>
+        </svg>
+        Scholar
+    </a>
+    </div>
+    <div class="resume">
+      <a href="resume.pdf" target="_blank">Download CV (PDF)</a>
+    </div>
+
+    </div>
+  </aside>
+
+  <!-- ================= Main ================= -->
+  <main class="content">
+
+    <!-- ================= HERO ================= -->
+    <section id="home" class="hero">
+      <h2>
+        Privacy-Preserving & Federated Machine Learning
+      </h2>
+
+      <p class="hero-tag">
+        Ph.D. Graduate · Postdoctoral & Research Positions · Open to Collaboration
+      </p>
+
+      <p>
+        I received my Ph.D. in Computer Science & Technology from
+        <strong>Shenzhen University</strong>.
+        My research focuses on <strong>trustworthy AI</strong>,
+        <strong>privacy-preserving and federated learning</strong>, and
+        <strong>Bayesian optimization</strong>, with an emphasis on
+        scalable and theoretically grounded distributed models.
+      </p>
+
+      <p>
+        I am actively seeking <strong>postdoctoral or research positions</strong>
+        and welcome academic or industrial collaborations in federated learning,
+        decentralized optimization, and probabilistic modeling.
+      </p>
+    </section>
+
+    <!-- ================= RESEARCH ================= -->
+    <section id="research" class="section">
+    <h2 class="section-title">Research Interests</h2>
+
+    <p style="max-width:820px;">
+        My research focuses on developing <strong>theoretically grounded and scalable
+        learning algorithms</strong> for distributed environments where data privacy,
+        communication constraints, and system heterogeneity are fundamental challenges.
+        I am particularly interested in probabilistic modeling and optimization methods
+        that enable trustworthy and decentralized AI systems.
+    </p>
+
+    <div class="columns">
+
+        <!-- ================= Core Methods ================= -->
+        <div class="card">
+        <h3>Core Research Directions</h3>
+
+        <ul>
+            <li>
+            <strong>
+                <a href="https://arxiv.org/pdf/2108.04417" target="_blank">
+                Privacy-Preserving ML
+                </a>
+            </strong>
+            <span class="toggle-link"
+            onclick="toggleDetails('ppml', this)">Read more</span>
+
+            <div id="ppml" class="details" style="display:none;">
+                Designing learning algorithms that guarantee formal privacy protection
+                (e.g., differential privacy, MPC, homomorphic encryption)
+                while maintaining model utility.
+            </div>
+            </li>
+
+            <li>
+            <strong>
+                <a href="https://ai.googleblog.com/2017/04/federated-learning-collaborative.html" target="_blank">
+                Federated Learning
+                </a>
+            </strong>
+            <span class="toggle-link"
+            onclick="toggleDetails('fed', this)">Read more</span>
+
+            <div id="fed" class="details" style="display:none;">
+                Training models across multiple clients without sharing raw data under
+                communication and privacy constraints.
+            </div>
+            </li>
+
+            <li>
+            <strong>
+                <a href="https://arxiv.org/pdf/1807.02811" target="_blank">
+                Bayesian Optimization
+                </a>
+            </strong>
+            <span class="toggle-link"
+            onclick="toggleDetails('bo', this)">Read more</span>
+
+            <div id="bo" class="details" style="display:none;">
+                Sample-efficient optimization of expensive black-box functions using
+                probabilistic surrogate models.
+            </div>
+            </li>
+
+            <li>
+            <strong>
+                <a href="http://www.gaussianprocess.org/gpml/" target="_blank">
+                Gaussian Processes
+                </a>
+            </strong>
+            <span class="toggle-link"
+            onclick="toggleDetails('gp', this)">Read more</span>
+
+            <div id="gp" class="details" style="display:none;">
+                Non-parametric Bayesian models defined by a mean function and kernel
+                covariance. They provide principled uncertainty estimation and
+                closed-form posterior inference under Gaussian assumptions.
+            </div>
+            </li>
+
+            <li>
+            <strong>
+                <a href="https://web.stanford.edu/~boyd/papers/pdf/admm_distr_stats.pdf" target="_blank">
+                Secure & Distributed Optimization
+                </a>
+            </strong>
+            <span class="toggle-link"
+            onclick="toggleDetails('opt', this)">Read more</span>
+
+            <div id="opt" class="details" style="display:none;">
+                Optimization methods (e.g., ADMM, decentralized consensus) adapted to
+                secure and privacy-aware settings, enabling collaborative learning across
+                untrusted or heterogeneous participants.
+            </div>
+            </li>
+        </ul>
+        </div>
+
+        <!-- ================= Applications ================= -->
+        <div class="card">
+        <h3>Application Domains</h3>
+
+        <ul>
+            <li>
+            <strong>Biomedical & Healthcare AI</strong>
+            <span class="toggle-link"
+            onclick="toggleDetails('bio', this)">Read more</span>
+
+            <div id="bio" class="details" style="display:none;">
+                Privacy-sensitive modeling of medical and health-related data across
+                institutions, where data sharing is restricted by legal and ethical constraints.
+            </div>
+            </li>
+
+            <li>
+            <strong>Distributed Data-Centric Systems</strong>
+            <span class="toggle-link"
+            onclick="toggleDetails('dds', this)">Read more</span>
+
+            <div id="dds" class="details" style="display:none;">
+                Learning from geographically distributed and statistically heterogeneous
+                data sources with limited communication budgets.
+            </div>
+            </li>
+
+            <li>
+            <strong>Heterogeneous Data & Heterogeneous Resources</strong>
+            <span class="toggle-link"
+            onclick="toggleDetails('hetero', this)">Read more</span>
+
+            <div id="hetero" class="details" style="display:none;">
+                Designing adaptive algorithms that account for varying compute, bandwidth,
+                and data quality across clients.
+            </div>
+            </li>
+
+            <li>
+            <strong>Protocol-Driven & Trustworthy AI Systems</strong>
+            <span class="toggle-link"
+            onclick="toggleDetails('proto', this)">Read more</span>
+
+            <div id="proto" class="details" style="display:none;">
+                Integrating learning algorithms with cryptographic and system-level protocols
+                to ensure robustness, privacy, and reliability.
+            </div>
+            </li>
+        </ul>
+        </div>
+
+    </div>
+    </section>
+
+
+
+    <!-- ================= EDUCATION ================= -->
+    <section id="education" class="section">
+      <h2 class="section-title">Educational Background</h2>
+
+      <ul class="timeline">
+        <li>
+          <strong>Ph.D., Computer Science & Technology</strong><br>
+          Shenzhen University (2021–2025)<br>
+          <em>Federated Bayesian Optimization based on Secure Gaussian Processes</em>
+        </li>
+        <li>
+          <strong>M.Eng., Information & Communications Engineering</strong><br>
+          South China University of Technology (2018–2020)<br>
+          <em>Multilingual Scene Text Detection and Recognition based on Convolutional Neural Networks/em>
+        </li>
+        <li>
+          <strong>B.Sc., Telecommunication Engineering</strong><br>
+          University of Engineering & Technology, Peshawar (2010–2014)<br>
+          <em>Graduated with First Class Honors</em>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ================= AWARDS ================= -->
+    <section id="awards" class="section">
+      <h2 class="section-title">Awards & Honors</h2>
+      <ul class="awards">
+        <li><strong>2018</strong> — Chinese Government Scholarship (CGS) Silk Road Program (awarded for M.Eng. at South China University of Technology)</li>
+        <li><strong>2020</strong> — Southeast University Presedential Scholarship and Nanjing Government Scholarship Award (For study at Southeast University PhD program)</li>
+        <li><strong>2021</strong> — Shenzhen University LiYuan Scholarship (PhD funding for 4 years in Computer Science & Technology)</li>
+        <li><strong>2021</strong> — Guangdong Government Outstanding International Student Scholarship & Shenzhen University Scholarship</li>
+        <li><strong>2022</strong> — Best Paper Finalist Award (Best Paper Finalist at the 2023 IEEE International Conference on Development and Learning, ICDL)</li>
+        <li><strong>2023</strong> — Excellence Award, Guangdong-Hong Kong-Macao Greater Bay Area Data Application Innovation Competition</li>
+        <li><strong>2024</strong> — Guangdong Government Outstanding International Student Scholarship & Shenzhen University Scholarship</li>
+        <li><strong>2024</strong> — Shenzhen University Outstanding Innovative Talent Scholarship (Special Prize), ¥77,000 — selected as one of the top PhD students for outstanding research achievements and innovation</li>
+        <li><strong>2024</strong> — AAAI Travel Scholarship Award — travel funding for attending the 38th Annual AAAI Conference on Artificial Intelligence (Vancouver, B.C., Canada)</li>
+        <li><strong>2025</strong> — Defended PhD Thesis</li>
+        <li><strong>2025</strong> — Graduated with PhD in Computer Science and Technology <strong>Ranked 3rd among all the candidates</strong></li>        
+      </ul>
+
+    </section>    
+
+    <!-- References and learning materials -->
+    <section id="references" class="section">
+    <h2 class="section-title">References & Learning Materials</h2>
+
+    <p style="max-width:820px;">
+        The following books, surveys, and seminal papers form the theoretical and
+        methodological foundations of my research.
+    </p>
+
+    <ul>
+        <li>
+        <strong>Dwork & Roth.</strong>
+        <em>The Algorithmic Foundations of Differential Privacy</em><br>
+        <a href="https://www.cis.upenn.edu/~aaroth/Papers/privacybook.pdf" target="_blank">
+            PDF
+        </a>
+        </li>
+
+        <li>
+        <strong>McMahan et al.</strong>
+        <em>Communication-Efficient Learning of Deep Networks from Decentralized Data</em><br>
+        <a href="https://arxiv.org/abs/1602.05629" target="_blank">
+            arXiv
+        </a>
+        </li>
+
+        <li>
+        <strong>Kairouz et al.</strong>
+        <em>Advances and Open Problems in Federated Learning</em><br>
+        <a href="https://arxiv.org/abs/1912.04977" target="_blank">
+            arXiv
+        </a>
+        </li>
+        
+        <li>
+        <strong>Liu et al.</strong>
+        <em>Recent advances on federated learning: A systematic survey</em><br>
+        <a href="https://www.sciencedirect.com/science/article/pii/S0925231224007902" target="_blank">
+            Neurocomputing Journal
+        </a>
+        </li>
+
+        <li>
+        <strong>Rasmussen & Williams.</strong>
+        <em>Gaussian Processes for Machine Learning</em><br>
+        <a href="http://www.gaussianprocess.org/gpml/" target="_blank">
+            Book Website
+        </a>
+        </li>
+
+        <li>
+        <strong>Shahriari et al.</strong>
+        <em>Taking the Human Out of the Loop: A Review of Bayesian Optimization</em><br>
+        <a href="https://www.cs.ox.ac.uk/people/nando.defreitas/publications/BayesOptLoop.pdf" target="_blank">
+            PDF
+        </a>
+        </li>
+
+        <li>
+        <strong>Wang et al.</strong>
+        <em>Recent Advances in Bayesian Optimization</em><br>
+        <a href="https://dl.acm.org/doi/pdf/10.1145/3582078" target="_blank">
+            ACM Computing Surveys
+        </a>
+        </li>
+    </ul>
+    </section>
+
+
+    <!-- ================= PUBLICATIONS ================= -->
+    <section id="publications" class="section">
+      <h2 class="section-title">Publications</h2>
+      <ol id="pub-list" class="pub-list"></ol>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="section">
+      <h2 class="section-title">Contact & Collaboration</h2>
+
+      <p>
+        I am interested in postdoctoral positions, research roles,
+        and collaborations related to federated learning,
+        privacy-preserving AI, and Bayesian methods.
+      </p>
+
+      <p class="contact-block">
+        <strong>Email:</strong> <a href="mailto:adilnawazin@gmail.com">adilnawazin@gmail.com</a><br>
+        <strong>Alternative Email:</strong><a href="mailto:adilnawaz@email.szu.edu.cn">adilnawaz@email.szu.edu.cn</a><br>
+        <strong>GitHub:</strong> <a href="https://gitee.com/SZU-AI4H">SZU-AI4H</a><br>
+        <strong>Google Scholar:</strong>
+        <a href="https://scholar.google.com/citations?user=tWc9ldIAAAAJ&hl=en">Profile</a>
+      </p>
+    </section>
+  </main>
+</div>
+
+<script>
+/* active nav */
+function setActive() {
+  document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+  const id = location.hash ? location.hash.slice(1) : 'home';
+  const link = document.querySelector('.nav a[href="#' + id + '"]');
+  if (link) link.classList.add('active');
+}
+window.addEventListener('hashchange', setActive);
+setActive();
+</script>
+
+<!-- BibTeX loader stays unchanged -->
+<script src="publications.js"></script>
+
+</body>
+
+<script>
+function toggleDetails(id, el) {
+  const target = document.getElementById(id);
+  const open = target.style.display === 'block';
+  target.style.display = open ? 'none' : 'block';
+  el.textContent = open ? 'Read more' : 'Hide';
+}
+</script>
+
+
+</html>
